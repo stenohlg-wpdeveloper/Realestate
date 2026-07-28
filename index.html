@@ -31,21 +31,24 @@
 </header>
 
 <section class="hero">
-  <img class="hero-photo" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80" alt="Modern architect-designed house at dusk with a lit pool" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fieldstone-hero/1800/1100'">
-  <div class="hero-scrim"></div>
+  <div class="hero-media">
+    <img class="hero-photo" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80" alt="Modern architect-designed house at dusk with a lit pool" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fieldstone-hero/1800/1100'">
+    <div class="hero-scrim"></div>
+    <div class="hero-grain"></div>
+  </div>
   <div class="hero-inner">
     <div>
-      <p class="eyebrow" style="margin-bottom:18px;">Fieldstone Property Co. — Est. 2011</p>
-      <h1>Homes chosen<br>for their <em>light</em>,<br>not just their listing.</h1>
-      <p class="lede">We represent a small number of architect-considered homes each season — each one walked, measured, and written up by someone who's actually stood in the room at 4pm.</p>
+      <p class="eyebrow hero-fade d1" style="margin-bottom:18px;">Fieldstone Property Co. — Est. 2011</p>
+      <h1 class="hero-fade d2">Homes chosen<br>for their <em>light</em>,<br>not just their listing.</h1>
+      <p class="lede hero-fade d3">We represent a small number of architect-considered homes each season — each one walked, measured, and written up by someone who's actually stood in the room at 4pm.</p>
 
-      <div class="hero-stats">
-        <div><b>142</b><span>Homes placed</span></div>
-        <div><b>19 yrs</b><span>Average tenure</span></div>
-        <div><b>11 days</b><span>Median time to offer</span></div>
+      <div class="hero-stats hero-fade d4">
+        <div><b class="count-up" data-target="142">0</b><span>Homes placed</span></div>
+        <div><b class="count-up" data-target="19" data-suffix=" yrs">0</b><span>Average tenure</span></div>
+        <div><b class="count-up" data-target="11" data-suffix=" days">0</b><span>Median time to offer</span></div>
       </div>
 
-      <div class="search-bar">
+      <div class="search-bar hero-fade d5">
         <div class="search-field">
           <label for="loc">Where</label>
           <input id="loc" type="text" placeholder="Neighborhood or zip">
@@ -74,6 +77,15 @@
       </div>
     </div>
   </div>
+
+  <div class="hero-badge hero-fade d5">
+    <span class="hero-badge-stars">★★★★★</span>
+    <span class="hero-badge-text"><b>4.9</b> average from clients who've closed with us</span>
+  </div>
+
+  <a href="#listings" class="scroll-cue" aria-label="Scroll to listings">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 4v15M12 19l-6-6M12 19l6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
 </section>
 
 <section id="listings">

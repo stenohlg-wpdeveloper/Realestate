@@ -82,20 +82,83 @@
   /* ---------- HERO ---------- */
   .hero{
     position:relative;
-    overflow:hidden;
+    overflow:visible;
     padding:150px 0 96px;
     min-height:640px;
     display:flex;
     align-items:center;
+    margin-bottom:30px;
+  }
+  .hero-media{
+    position:absolute; inset:0; overflow:hidden; z-index:0;
   }
   .hero-photo{
     position:absolute; inset:0; width:100%; height:100%;
     object-fit:cover; object-position:center;
     z-index:0;
+    animation: heroZoom 22s ease-in-out infinite alternate;
+    will-change:transform;
+  }
+  @keyframes heroZoom{
+    0%{ transform:scale(1); }
+    100%{ transform:scale(1.09); }
   }
   .hero-scrim{
     position:absolute; inset:0; z-index:1;
     background:linear-gradient(100deg, rgba(24,32,25,0.88) 0%, rgba(24,32,25,0.72) 38%, rgba(24,32,25,0.32) 68%, rgba(24,32,25,0.18) 100%);
+  }
+  .hero-grain{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background-image:radial-gradient(rgba(246,241,231,0.05) 1px, transparent 1px);
+    background-size:3px 3px;
+    mix-blend-mode:overlay;
+    opacity:0.5;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-photo{ animation:none; }
+  }
+  .hero-fade{
+    opacity:0; transform:translateY(16px);
+    animation: heroFadeUp .8s cubic-bezier(.22,.68,.36,1) forwards;
+  }
+  .hero-fade.d1{animation-delay:.05s;}
+  .hero-fade.d2{animation-delay:.15s;}
+  .hero-fade.d3{animation-delay:.28s;}
+  .hero-fade.d4{animation-delay:.4s;}
+  .hero-fade.d5{animation-delay:.52s;}
+  @keyframes heroFadeUp{
+    to{ opacity:1; transform:translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-fade{ opacity:1; transform:none; animation:none; }
+  }
+
+  .hero-badge{
+    position:absolute; right:32px; bottom:-30px; z-index:3;
+    background:var(--ivory);
+    border-radius:4px;
+    padding:16px 20px;
+    display:flex; align-items:center; gap:12px;
+    box-shadow:0 24px 46px -20px rgba(20,26,20,0.5);
+    max-width:250px;
+  }
+  .hero-badge-stars{ color:var(--rust); font-size:13px; letter-spacing:1px; flex:none;}
+  .hero-badge-text{ font-size:12.5px; line-height:1.35; color:#4a5148;}
+  .hero-badge-text b{ font-family:'Fraunces',serif; font-size:15px; color:var(--forest-dark);}
+
+  .scroll-cue{
+    position:absolute; left:50%; bottom:22px; transform:translateX(-50%);
+    z-index:3; color:rgba(246,241,231,0.75);
+    display:flex; animation: bounceCue 2.2s ease-in-out infinite;
+  }
+  .scroll-cue:hover{ color:var(--ivory); }
+  @keyframes bounceCue{
+    0%,100%{ transform:translate(-50%,0); }
+    50%{ transform:translate(-50%,8px); }
+  }
+  @media (max-width:640px){
+    .hero-badge{ position:static; margin:28px 32px 0; max-width:none; }
+    .scroll-cue{ display:none; }
   }
   .hero-inner{
     position:relative; z-index:2;
