@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fieldstone Property Co. — Architect-considered homes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F6F1E7;
+    --paper:#EEE6D6;
+    --forest:#28372F;
+    --forest-dark:#182019;
+    --stone:#A08A66;
+    --rust:#A6512C;
+    --ink:#1E2621;
+    --line: rgba(30,38,33,0.16);
+    --line-strong: rgba(30,38,33,0.32);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--rust);
+  }
+  :focus-visible{outline:2px solid var(--rust); outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,241,231,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:1180px;margin:0 auto;padding:20px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Fraunces',serif;font-size:19px;font-weight:600;
+  }
+  .logo-mark{width:26px;height:26px;flex:none;}
+  .nav-links{display:flex;gap:36px;list-style:none;margin:0;padding:0;}
+  .nav-links a{
+    text-decoration:none;font-size:14px;font-weight:500;color:var(--forest-dark);
+    position:relative;padding-bottom:3px;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--rust);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    background:var(--forest-dark);color:var(--ivory);
+    padding:11px 20px;border-radius:2px;text-decoration:none;
+    letter-spacing:0.03em;
+    transition:background .2s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--rust);}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    padding:88px 0 0;
+    background:linear-gradient(180deg, #F6F1E7 0%, #F1E9D9 100%);
+  }
+  .hero-inner{
+    max-width:1180px;margin:0 auto;padding:0 32px;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(40px,5.4vw,68px);
+    line-height:1.02;
+    color:var(--forest-dark);
+  }
+  .hero h1 em{font-style:italic;color:var(--rust);}
+  .hero p.lede{
+    max-width:440px;margin:22px 0 0;font-size:17px;color:#40473F;
+  }
+  .hero-illustration{width:100%;height:auto;}
+  .hero-stats{
+    display:flex;gap:34px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line-strong);
+    max-width:460px;
+  }
+  .hero-stats div b{
+    display:block;font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:var(--forest-dark);
+  }
+  .hero-stats div span{font-size:12px;color:#666;text-transform:uppercase;letter-spacing:0.06em;}
+
+  /* search bar */
+  .search-bar{
+    margin-top:44px;
+    background:var(--forest-dark);
+    border-radius:4px;
+    padding:22px;
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr auto;
+    gap:16px;
+    box-shadow:0 22px 44px -18px rgba(20,26,20,0.45);
+  }
+  .search-field{display:flex;flex-direction:column;gap:6px;}
+  .search-field label{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#C9BFA6;text-transform:uppercase;letter-spacing:0.09em;
+  }
+  .search-field select, .search-field input{
+    background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.28);
+    color:var(--ivory);font-family:'Inter',sans-serif;font-size:14.5px;padding:4px 0;
+  }
+  .search-field select option{color:#111;}
+  .search-field input::placeholder{color:#8f9a8f;}
+  .search-btn{
+    align-self:end;background:var(--rust);color:var(--ivory);border:none;border-radius:2px;
+    padding:12px 22px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;
+    cursor:pointer;transition:background .2s ease;
+  }
+  .search-btn:hover{background:#8c4324;}
+
+  /* ---------- SECTION LABELS ---------- */
+  section{padding:104px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:56px;
+    border-bottom:1px solid var(--line);padding-bottom:26px;
+  }
+  .section-head h2{font-size:clamp(28px,3.4vw,40px);}
+  .section-head p{max-width:340px;font-size:14.5px;color:#5b5f57;margin:0;}
+
+  /* ---------- LISTINGS ---------- */
+  .listings-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+  }
+  .card{
+    position:relative;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:3px;
+    overflow:hidden;
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .card:hover{transform:translateY(-6px); box-shadow:0 30px 50px -30px rgba(30,38,33,0.4);}
+  .card-media{position:relative;aspect-ratio:4/3;background:var(--forest);overflow:hidden;}
+  .card-media svg{width:100%;height:100%;}
+  .card-tag{
+    position:absolute;top:14px;left:14px;
+    background:rgba(246,241,231,0.92);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.05em;
+    padding:5px 10px;border-radius:2px;text-transform:uppercase;color:var(--forest-dark);
+  }
+  .card-ticks{
+    position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s ease;
+  }
+  .card:hover .card-ticks{opacity:1;}
+  .card-body{padding:20px 20px 22px;}
+  .card-body .price{
+    font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--forest-dark);
+  }
+  .card-body .addr{font-size:13.5px;color:#5b5f57;margin-top:4px;}
+  .card-specs{
+    display:flex;gap:16px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:#4a5148;
+  }
+  .card-specs span b{color:var(--forest-dark);}
+
+  /* ---------- PROCESS ---------- */
+  .process-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-strong);}
+  .process-item{
+    padding:34px 26px 34px 0;border-bottom:1px solid var(--line-strong);
+    border-right:1px solid var(--line-strong);
+    position:relative;
+  }
+  .process-list .process-item:nth-child(3n){border-right:none;}
+  .process-num{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--rust);margin-bottom:14px;
+  }
+  .process-item h3{font-size:20px;margin-bottom:10px;}
+  .process-item p{font-size:14px;color:#565c53;margin:0;max-width:280px;}
+
+  /* ---------- AGENTS ---------- */
+  .agents-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .agent-card{text-align:left;}
+  .agent-avatar{aspect-ratio:1;border-radius:3px;overflow:hidden;background:var(--forest);margin-bottom:14px;}
+  .agent-avatar svg{width:100%;height:100%;}
+  .agent-card h3{font-size:17px;margin-bottom:2px;}
+  .agent-card .role{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--rust);text-transform:uppercase;letter-spacing:0.05em;}
+
+  /* ---------- TESTIMONIAL ---------- */
+  .testimonial{
+    background:var(--forest-dark);color:var(--ivory);border-radius:4px;
+    padding:72px 64px;position:relative;overflow:hidden;
+  }
+  .testimonial blockquote{
+    font-family:'Fraunces',serif;font-style:italic;font-weight:400;
+    font-size:clamp(24px,2.6vw,32px);line-height:1.35;max-width:760px;margin:0;
+  }
+  .testimonial cite{
+    display:block;margin-top:28px;font-style:normal;font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;color:#C9BFA6;letter-spacing:0.03em;
+  }
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;
+    padding:64px 0;border-top:1px solid var(--line);
+  }
+  .cta-banner h2{font-size:clamp(26px,3.2vw,38px);max-width:520px;}
+  .cta-buttons{display:flex;gap:14px;}
+  .btn-primary, .btn-secondary{
+    text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.03em;
+    padding:14px 26px;border-radius:2px;white-space:nowrap;
+  }
+  .btn-primary{background:var(--rust);color:var(--ivory);transition:background .2s ease;}
+  .btn-primary:hover{background:#8c4324;}
+  .btn-secondary{border:1px solid var(--line-strong);color:var(--forest-dark);}
+  .btn-secondary:hover{border-color:var(--forest-dark);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--forest-dark);color:#D9D2C0;padding:72px 0 36px;}
+  .footer-top{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:52px;border-bottom:1px solid rgba(217,210,192,0.15);
+  }
+  .footer-top .logo{color:var(--ivory);margin-bottom:14px;}
+  .footer-top p{font-size:13.5px;color:#A9A493;max-width:260px;}
+  .footer-col h4{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
+    color:#C9BFA6;margin-bottom:16px;
+  }
+  .footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .footer-col a{text-decoration:none;font-size:13.5px;color:#D9D2C0;transition:color .2s ease;}
+  .footer-col a:hover{color:var(--rust);}
+  .footer-form{display:flex;gap:0;border-bottom:1px solid rgba(217,210,192,0.35);padding-bottom:10px;}
+  .footer-form input{
+    background:transparent;border:none;flex:1;color:var(--ivory);font-size:13.5px;font-family:'Inter',sans-serif;
+  }
+  .footer-form input::placeholder{color:#8f9a8f;}
+  .footer-form button{
+    background:none;border:none;color:var(--rust);font-family:'IBM Plex Mono',monospace;font-size:12px;cursor:pointer;
+  }
+  .footer-bottom{
+    display:flex;justify-content:space-between;padding-top:28px;font-size:12.5px;color:#8a8577;
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-illustration{order:-1;max-width:360px;margin:0 auto;}
+    .listings-grid{grid-template-columns:repeat(2,1fr);}
+    .agents-grid{grid-template-columns:repeat(2,1fr);}
+    .process-list{grid-template-columns:1fr;}
+    .process-list .process-item{border-right:none;}
+    .footer-top{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    .search-bar{grid-template-columns:1fr 1fr; }
+    .search-btn{grid-column:1/-1;}
+  }
+  @media (max-width:640px){
+    .wrap,.hero-inner,nav,footer .wrap{padding-left:20px;padding-right:20px;}
+    .listings-grid{grid-template-columns:1fr;}
+    .agents-grid{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr;}
+    section{padding:72px 0;}
+    .cta-banner{padding:48px 0;}
+    .testimonial{padding:44px 28px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 26 26" fill="none">
+        <path d="M13 2L24 12V24H2V12L13 2Z" stroke="#A6512C" stroke-width="1.6"/>
+        <path d="M9 24V15H17V24" stroke="#28372F" stroke-width="1.6"/>
+      </svg>
+      Fieldstone
+    </div>
+    <ul class="nav-links">
+      <li><a href="#listings">Listings</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#agents">Agents</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Book a tour</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow" style="margin-bottom:18px;">Fieldstone Property Co. — Est. 2011</p>
+      <h1>Homes chosen<br>for their <em>light</em>,<br>not just their listing.</h1>
+      <p class="lede">We represent a small number of architect-considered homes each season — each one walked, measured, and written up by someone who's actually stood in the room at 4pm.</p>
+
+      <div class="hero-stats">
+        <div><b>142</b><span>Homes placed</span></div>
+        <div><b>19 yrs</b><span>Average tenure</span></div>
+        <div><b>11 days</b><span>Median time to offer</span></div>
+      </div>
+
+      <div class="search-bar">
+        <div class="search-field">
+          <label for="loc">Where</label>
+          <input id="loc" type="text" placeholder="Neighborhood or zip">
+        </div>
+        <div class="search-field">
+          <label for="type">Type</label>
+          <select id="type">
+            <option>Any type</option>
+            <option>Single-family</option>
+            <option>Cabin / retreat</option>
+            <option>Multi-unit</option>
+            <option>Land</option>
+          </select>
+        </div>
+        <div class="search-field">
+          <label for="budget">Budget</label>
+          <select id="budget">
+            <option>Any budget</option>
+            <option>Under $600k</option>
+            <option>$600k – $1.1M</option>
+            <option>$1.1M – $2M</option>
+            <option>$2M+</option>
+          </select>
+        </div>
+        <button class="search-btn" type="button">Search</button>
+      </div>
+    </div>
+
+    <svg class="hero-illustration" viewBox="0 0 480 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="0" y="0" width="480" height="520" fill="none"/>
+      <path d="M0 400 C 90 360, 160 420, 240 380 C 320 340, 380 400, 480 360 L480 520 L0 520 Z" fill="#28372F" opacity="0.9"/>
+      <path d="M0 430 C 100 400, 180 450, 260 420 C 340 390, 400 430, 480 410 L480 520 L0 520 Z" fill="#1A2621"/>
+      <g stroke="#A6512C" stroke-width="1.4" opacity="0.9">
+        <path d="M140 300 L140 400" />
+        <path d="M140 300 L200 260 L260 300" />
+        <path d="M170 300 L170 400" stroke-dasharray="0"/>
+        <path d="M230 300 L230 400"/>
+      </g>
+      <rect x="140" y="300" width="120" height="100" fill="#F1E9D9" stroke="#A6512C" stroke-width="1.2"/>
+      <path d="M133 305 L200 255 L267 305" fill="#A6512C" opacity="0.15"/>
+      <path d="M133 305 L200 255 L267 305" stroke="#A6512C" stroke-width="1.4"/>
+      <rect x="155" y="330" width="24" height="34" fill="#28372F"/>
+      <rect x="222" y="320" width="26" height="26" fill="#C9BFA6" opacity="0.6" stroke="#A6512C" stroke-width="0.8"/>
+      <line x1="235" y1="320" x2="235" y2="346" stroke="#A6512C" stroke-width="0.8"/>
+      <line x1="222" y1="333" x2="248" y2="333" stroke="#A6512C" stroke-width="0.8"/>
+      <text x="270" y="360" font-family="IBM Plex Mono, monospace" font-size="9" fill="#A6512C">26'-0"</text>
+      <circle cx="90" cy="120" r="46" fill="#F1E9D9" opacity="0.85"/>
+      <g stroke="#28372F" stroke-width="1" opacity="0.35">
+        <line x1="0" y1="230" x2="480" y2="210"/>
+        <line x1="0" y1="260" x2="480" y2="245"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section id="listings">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">Current listings</p>
+        <h2>Six homes, this season.</h2>
+      </div>
+      <p>We keep the roster short on purpose — every home below has been walked by an agent this month, not pulled from a syndication feed.</p>
+    </div>
+
+    <div class="listings-grid">
+
+      <article class="card reveal">
+        <div class="card-media" style="background:#33453A;">
+          <svg viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#33453A"/>
+            <path d="M0 190 L200 110 L400 190 L400 300 L0 300 Z" fill="#243328"/>
+            <rect x="120" y="150" width="160" height="120" fill="#EFE9D8"/>
+            <rect x="150" y="190" width="30" height="80" fill="#182019"/>
+            <rect x="210" y="180" width="34" height="34" fill="#A6512C" opacity="0.55"/>
+          </svg>
+          <span class="card-tag mono">New</span>
+          <svg class="card-ticks" viewBox="0 0 400 300">
+            <line x1="120" y1="140" x2="280" y2="140" stroke="#A6512C" stroke-width="1"/>
+            <text x="185" y="132" font-family="IBM Plex Mono" font-size="10" fill="#A6512C">40'-0"</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="price mono">$1,240,000</div>
+          <div class="addr">214 Cinder Ridge Rd, Willow Creek</div>
+          <div class="card-specs">
+            <span><b>4</b> bd</span>
+            <span><b>3</b> ba</span>
+            <span><b>2,410</b> sqft</span>
+            <span><b>0.6</b> ac</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media" style="background:#3A4B3F;">
+          <svg viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#3A4B3F"/>
+            <rect x="60" y="140" width="280" height="130" fill="#20291F"/>
+            <rect x="90" y="170" width="220" height="100" fill="#F1E9D8"/>
+            <rect x="180" y="200" width="40" height="70" fill="#182019"/>
+            <line x1="60" y1="140" x2="200" y2="90" stroke="#A6512C" stroke-width="1.4"/>
+            <line x1="200" y1="90" x2="340" y2="140" stroke="#A6512C" stroke-width="1.4"/>
+          </svg>
+          <span class="card-tag mono">Open Sat</span>
+          <svg class="card-ticks" viewBox="0 0 400 300">
+            <line x1="90" y1="160" x2="310" y2="160" stroke="#A6512C" stroke-width="1"/>
+            <text x="180" y="152" font-family="IBM Plex Mono" font-size="10" fill="#A6512C">44'-0"</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="price mono">$895,000</div>
+          <div class="addr">7 Founders Row, Amberfield</div>
+          <div class="card-specs">
+            <span><b>3</b> bd</span>
+            <span><b>2</b> ba</span>
+            <span><b>1,860</b> sqft</span>
+            <span><b>0.2</b> ac</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media" style="background:#2C3A31;">
+          <svg viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#2C3A31"/>
+            <path d="M40 260 L40 160 L200 100 L360 160 L360 260 Z" fill="#EFE9D8"/>
+            <rect x="180" y="190" width="40" height="70" fill="#182019"/>
+            <rect x="90" y="180" width="30" height="30" fill="#A6512C" opacity="0.5"/>
+            <rect x="280" y="180" width="30" height="30" fill="#A6512C" opacity="0.5"/>
+          </svg>
+          <span class="card-tag mono">Cabin</span>
+          <svg class="card-ticks" viewBox="0 0 400 300">
+            <line x1="40" y1="150" x2="360" y2="150" stroke="#A6512C" stroke-width="1"/>
+            <text x="175" y="142" font-family="IBM Plex Mono" font-size="10" fill="#A6512C">64'-0"</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="price mono">$612,000</div>
+          <div class="addr">Lot 4, Tamarack Trail, Birch Hollow</div>
+          <div class="card-specs">
+            <span><b>2</b> bd</span>
+            <span><b>1</b> ba</span>
+            <span><b>1,120</b> sqft</span>
+            <span><b>1.4</b> ac</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media" style="background:#34443A;">
+          <svg viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#34443A"/>
+            <rect x="70" y="130" width="120" height="140" fill="#20291F"/>
+            <rect x="210" y="100" width="120" height="170" fill="#EFE9D8"/>
+            <rect x="240" y="140" width="24" height="40" fill="#182019"/>
+            <rect x="280" y="140" width="24" height="40" fill="#182019"/>
+          </svg>
+          <span class="card-tag mono">Duplex</span>
+          <svg class="card-ticks" viewBox="0 0 400 300">
+            <line x1="70" y1="120" x2="330" y2="90" stroke="#A6512C" stroke-width="1"/>
+            <text x="190" y="98" font-family="IBM Plex Mono" font-size="10" fill="#A6512C">51'-0"</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="price mono">$1,020,000</div>
+          <div class="addr">302–304 Millrace St, Alder Park</div>
+          <div class="card-specs">
+            <span><b>5</b> bd</span>
+            <span><b>4</b> ba</span>
+            <span><b>3,050</b> sqft</span>
+            <span><b>0.3</b> ac</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media" style="background:#2E3C33;">
+          <svg viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#2E3C33"/>
+            <path d="M0 240 L400 210 L400 300 L0 300 Z" fill="#20291F"/>
+            <rect x="140" y="150" width="140" height="100" fill="#EFE9D8"/>
+            <rect x="190" y="190" width="40" height="60" fill="#182019"/>
+          </svg>
+          <span class="card-tag mono">Land</span>
+          <svg class="card-ticks" viewBox="0 0 400 300">
+            <line x1="0" y1="230" x2="400" y2="200" stroke="#A6512C" stroke-width="1"/>
+            <text x="170" y="195" font-family="IBM Plex Mono" font-size="10" fill="#A6512C">4.8 ac</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="price mono">$385,000</div>
+          <div class="addr">Parcel 12, Quarry Line Rd</div>
+          <div class="card-specs">
+            <span><b>—</b> bd</span>
+            <span><b>—</b> ba</span>
+            <span><b>Buildable</b></span>
+            <span><b>4.8</b> ac</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media" style="background:#38493D;">
+          <svg viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="300" fill="#38493D"/>
+            <rect x="60" y="120" width="280" height="150" fill="#EFE9D8"/>
+            <rect x="170" y="200" width="60" height="70" fill="#182019"/>
+            <line x1="60" y1="120" x2="340" y2="120" stroke="#A6512C" stroke-width="1.2"/>
+            <rect x="90" y="150" width="50" height="40" fill="#A6512C" opacity="0.45"/>
+            <rect x="260" y="150" width="50" height="40" fill="#A6512C" opacity="0.45"/>
+          </svg>
+          <span class="card-tag mono">Reduced</span>
+          <svg class="card-ticks" viewBox="0 0 400 300">
+            <line x1="60" y1="112" x2="340" y2="112" stroke="#A6512C" stroke-width="1"/>
+            <text x="180" y="104" font-family="IBM Plex Mono" font-size="10" fill="#A6512C">58'-0"</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="price mono">$1,485,000</div>
+          <div class="addr">19 Longview Bluff, Ashcombe</div>
+          <div class="card-specs">
+            <span><b>4</b> bd</span>
+            <span><b>3.5</b> ba</span>
+            <span><b>3,320</b> sqft</span>
+            <span><b>1.1</b> ac</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="section-head reveal" style="border-color:var(--line-strong);">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">How it actually goes</p>
+        <h2>Three calls, in order.</h2>
+      </div>
+      <p>Not a funnel — the real sequence, in the order our clients go through it, start to close.</p>
+    </div>
+
+    <div class="process-list reveal">
+      <div class="process-item">
+        <div class="process-num mono">01 — Week 1</div>
+        <h3>Walk the shortlist</h3>
+        <p>We tour four to six homes in a day, on foot, at the time of day you'd actually be living in them.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-num mono">02 — Week 2</div>
+        <h3>Write the offer</h3>
+        <p>We price against comps we've verified in person, not an algorithm's estimate, and write terms that protect you.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-num mono">03 — Weeks 3–6</div>
+        <h3>Close and hand over keys</h3>
+        <p>Inspection, appraisal, and closing, coordinated on one shared timeline so nothing surprises you at the table.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agents">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px;">Who you'll work with</p>
+        <h2>Four agents, one roster.</h2>
+      </div>
+      <p>Every listing above is held by someone on this list — no hand-offs to a call center once you've signed.</p>
+    </div>
+
+    <div class="agents-grid">
+      <div class="agent-card reveal">
+        <div class="agent-avatar">
+          <svg viewBox="0 0 200 200"><rect width="200" height="200" fill="#33453A"/><circle cx="100" cy="80" r="42" fill="#EFE9D8"/><path d="M40 200 C40 140 160 140 160 200 Z" fill="#EFE9D8"/></svg>
+        </div>
+        <h3>Dana Okafor</h3>
+        <div class="role">Founding agent</div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-avatar">
+          <svg viewBox="0 0 200 200"><rect width="200" height="200" fill="#3A4B3F"/><circle cx="100" cy="80" r="42" fill="#EFE9D8"/><path d="M40 200 C40 140 160 140 160 200 Z" fill="#EFE9D8"/></svg>
+        </div>
+        <h3>Marcus Feld</h3>
+        <div class="role">Land &amp; new build</div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-avatar">
+          <svg viewBox="0 0 200 200"><rect width="200" height="200" fill="#2C3A31"/><circle cx="100" cy="80" r="42" fill="#EFE9D8"/><path d="M40 200 C40 140 160 140 160 200 Z" fill="#EFE9D8"/></svg>
+        </div>
+        <h3>Priya Ramanathan</h3>
+        <div class="role">Relocation</div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-avatar">
+          <svg viewBox="0 0 200 200"><rect width="200" height="200" fill="#34443A"/><circle cx="100" cy="80" r="42" fill="#EFE9D8"/><path d="M40 200 C40 140 160 140 160 200 Z" fill="#EFE9D8"/></svg>
+        </div>
+        <h3>Sam Whitcombe</h3>
+        <div class="role">First-time buyers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="testimonial reveal">
+      <blockquote>"Dana walked the Ashcombe house with us at 7am so we could see the light hit the kitchen the way we would every morning. That's the whole reason we bought it."</blockquote>
+      <cite>— Renata &amp; Owen T., closed on Longview Bluff, March 2026</cite>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <h2>Have a home in mind, or ready to list your own?</h2>
+      <div class="cta-buttons">
+        <a class="btn-primary" href="#">Book a walkthrough</a>
+        <a class="btn-secondary" href="#">Get a home valuation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="logo">
+          <svg class="logo-mark" viewBox="0 0 26 26" fill="none">
+            <path d="M13 2L24 12V24H2V12L13 2Z" stroke="#A6512C" stroke-width="1.6"/>
+            <path d="M9 24V15H17V24" stroke="#F6F1E7" stroke-width="1.6"/>
+          </svg>
+          Fieldstone
+        </div>
+        <p>A six-person brokerage working one region closely, rather than every region thinly. Licensed in-state, broker of record on file.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#listings">Listings</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#agents">Agents</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@fieldstoneproperty.example">hello@fieldstoneproperty.example</a></li>
+          <li><a href="tel:+15550142">+1 (555) 555-0142</a></li>
+          <li><a href="#">118 Quarry Line Rd, Studio 3</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Notes from the field</h4>
+        <div class="footer-form">
+          <input type="email" placeholder="Your email">
+          <button type="button">Subscribe →</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fieldstone Property Co.</span>
+      <span>Equal Housing Opportunity</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el=>io.observe(el));
+
+  document.querySelectorAll('.footer-form button, .search-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      btn.textContent = btn.textContent.includes('Subscribe') ? 'Thanks — added' : 'Searching…';
+    });
+  });
+</script>
+
+</body>
+</html>
