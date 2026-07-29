@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Fieldstone Property Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 26 26" fill="none">
+        <path d="M13 2L24 12V24H2V12L13 2Z" stroke="#A6512C" stroke-width="1.6"/>
+        <path d="M9 24V15H17V24" stroke="#28372F" stroke-width="1.6"/>
+      </svg>
+      Fieldstone
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="listings.html">Listings</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a class="nav-cta" href="contact.html">Book a tour</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="listings.html">Listings</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a class="mobile-cta" href="contact.html">Book a tour</a>
+  </div>
+</header>
+
+<section class="page-hero" style="min-height:240px;">
+  <div class="hero-media">
+    <img class="hero-photo" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1800&q=80" alt="Front porch of a home in the evening" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fieldstone-contact/1800/700'">
+    <div class="hero-scrim"></div>
+    <div class="hero-grain"></div>
+  </div>
+  <div class="page-hero-inner">
+    <p class="breadcrumb hero-fade d1"><a href="index.html">Home</a> / Contact</p>
+    <h1 class="hero-fade d2">Let's talk.</h1>
+    <p class="lede hero-fade d3">Whether you're touring, listing, or just weighing your options — a real agent replies, not a form-fill autoresponder.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="contact-grid reveal">
+      <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('.form-submit').textContent='Thanks — we\'ll be in touch shortly';">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Full name</label>
+            <input id="name" type="text" placeholder="Jordan Ellis" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="(555) 555-0142">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-field">
+            <label for="reason">I'm looking to</label>
+            <select id="reason">
+              <option>Buy a home</option>
+              <option>Sell a home</option>
+              <option>Get a valuation</option>
+              <option>Just browsing</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us a bit about what you're after — neighborhood, timeline, budget…"></textarea>
+        </div>
+        <button class="btn-primary form-submit" type="submit" style="align-self:flex-start;border:none;cursor:pointer;">Send message</button>
+      </form>
+
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <h4>Office</h4>
+          <p>118 Quarry Line Rd, Studio 3<br>Ashcombe, ST 00000</p>
+        </div>
+        <div class="contact-info-item">
+          <h4>Phone</h4>
+          <a href="tel:+15550142">+1 (555) 555-0142</a>
+        </div>
+        <div class="contact-info-item">
+          <h4>Email</h4>
+          <a href="mailto:hello@fieldstoneproperty.example">hello@fieldstoneproperty.example</a>
+        </div>
+        <div class="contact-info-item">
+          <h4>Hours</h4>
+          <p>Mon–Fri, 9am–6pm<br>Weekend tours by appointment</p>
+        </div>
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps?q=Quarry%20Line%20Rd&output=embed" loading="lazy" title="Map to Fieldstone Property Co. office"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="logo">
+          <svg class="logo-mark" viewBox="0 0 26 26" fill="none">
+            <path d="M13 2L24 12V24H2V12L13 2Z" stroke="#A6512C" stroke-width="1.6"/>
+            <path d="M9 24V15H17V24" stroke="#F6F1E7" stroke-width="1.6"/>
+          </svg>
+          Fieldstone
+        </div>
+        <p>A six-person brokerage working one region closely, rather than every region thinly. Licensed in-state, broker of record on file.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="about.html">Process &amp; agents</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@fieldstoneproperty.example">hello@fieldstoneproperty.example</a></li>
+          <li><a href="tel:+15550142">+1 (555) 555-0142</a></li>
+          <li><a href="contact.html">118 Quarry Line Rd, Studio 3</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Notes from the field</h4>
+        <div class="footer-form">
+          <input type="email" placeholder="Your email">
+          <button type="button">Subscribe →</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Fieldstone Property Co.</span>
+      <span>Equal Housing Opportunity</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+
+</body>
+</html>

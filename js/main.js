@@ -12,7 +12,22 @@ const revealEls = document.querySelectorAll('.reveal');
     });
   });
 
-  // Count up the hero stat numbers once on load
+  // Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  if(navToggle && mobileMenu){
+    navToggle.addEventListener('click', ()=>{
+      const isOpen = mobileMenu.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    mobileMenu.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        mobileMenu.classList.remove('open');
+        navToggle.classList.remove('open');
+      });
+    });
+  }
   document.querySelectorAll('.count-up').forEach(el=>{
     const target = parseInt(el.dataset.target, 10) || 0;
     const suffix = el.dataset.suffix || '';

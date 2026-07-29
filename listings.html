@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fieldstone Property Co. — Architect-considered homes</title>
+<title>Listings — Fieldstone Property Co.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -21,8 +21,8 @@
       Fieldstone
     </a>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="listings.html">Listings</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="listings.html" class="active">Listings</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -34,82 +34,59 @@
     </div>
   </nav>
   <div class="mobile-menu">
-    <a href="index.html" class="active">Home</a>
-    <a href="listings.html">Listings</a>
+    <a href="index.html">Home</a>
+    <a href="listings.html" class="active">Listings</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
     <a class="mobile-cta" href="contact.html">Book a tour</a>
   </div>
 </header>
 
-<section class="hero">
+<section class="page-hero">
   <div class="hero-media">
-    <img class="hero-photo" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80" alt="Modern architect-designed house at dusk with a lit pool" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fieldstone-hero/1800/1100'">
+    <img class="hero-photo" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80" alt="Large house exterior on a bluff at dusk" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fieldstone-listings/1800/900'">
     <div class="hero-scrim"></div>
     <div class="hero-grain"></div>
   </div>
-  <div class="hero-inner">
-    <div>
-      <p class="eyebrow hero-fade d1" style="margin-bottom:18px;">Fieldstone Property Co. — Est. 2011</p>
-      <h1 class="hero-fade d2">Homes chosen<br>for their <em>light</em>,<br>not just their listing.</h1>
-      <p class="lede hero-fade d3">We represent a small number of architect-considered homes each season — each one walked, measured, and written up by someone who's actually stood in the room at 4pm.</p>
-
-      <div class="hero-stats hero-fade d4">
-        <div><b class="count-up" data-target="142">0</b><span>Homes placed</span></div>
-        <div><b class="count-up" data-target="19" data-suffix=" yrs">0</b><span>Average tenure</span></div>
-        <div><b class="count-up" data-target="11" data-suffix=" days">0</b><span>Median time to offer</span></div>
-      </div>
-
-      <div class="search-bar hero-fade d5">
-        <div class="search-field">
-          <label for="loc">Where</label>
-          <input id="loc" type="text" placeholder="Neighborhood or zip">
-        </div>
-        <div class="search-field">
-          <label for="type">Type</label>
-          <select id="type">
-            <option>Any type</option>
-            <option>Single-family</option>
-            <option>Cabin / retreat</option>
-            <option>Multi-unit</option>
-            <option>Land</option>
-          </select>
-        </div>
-        <div class="search-field">
-          <label for="budget">Budget</label>
-          <select id="budget">
-            <option>Any budget</option>
-            <option>Under $600k</option>
-            <option>$600k – $1.1M</option>
-            <option>$1.1M – $2M</option>
-            <option>$2M+</option>
-          </select>
-        </div>
-        <a class="search-btn" href="listings.html" style="text-decoration:none;display:inline-block;">Search</a>
-      </div>
-    </div>
+  <div class="page-hero-inner">
+    <p class="breadcrumb hero-fade d1"><a href="index.html">Home</a> / Listings</p>
+    <h1 class="hero-fade d2">Six homes, this season.</h1>
+    <p class="lede hero-fade d3">Every listing below has been walked and measured by one of our own agents this month — not pulled from a syndication feed.</p>
   </div>
-
-  <div class="hero-badge hero-fade d5">
-    <span class="hero-badge-stars">★★★★★</span>
-    <span class="hero-badge-text"><b>4.9</b> average from clients who've closed with us</span>
-  </div>
-
-  <a href="#featured" class="scroll-cue" aria-label="Scroll to listings">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 4v15M12 19l-6-6M12 19l6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </a>
 </section>
 
-<section id="featured">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <p class="eyebrow" style="margin-bottom:10px;">Current listings</p>
-        <h2>A few homes, this season.</h2>
-      </div>
-      <p>We keep the roster short on purpose — every home below has been walked by an agent this month, not pulled from a syndication feed.</p>
+<div class="wrap filter-wrap">
+  <div class="search-bar reveal">
+    <div class="search-field">
+      <label for="loc">Where</label>
+      <input id="loc" type="text" placeholder="Neighborhood or zip">
     </div>
+    <div class="search-field">
+      <label for="type">Type</label>
+      <select id="type">
+        <option>Any type</option>
+        <option>Single-family</option>
+        <option>Cabin / retreat</option>
+        <option>Multi-unit</option>
+        <option>Land</option>
+      </select>
+    </div>
+    <div class="search-field">
+      <label for="budget">Budget</label>
+      <select id="budget">
+        <option>Any budget</option>
+        <option>Under $600k</option>
+        <option>$600k – $1.1M</option>
+        <option>$1.1M – $2M</option>
+        <option>$2M+</option>
+      </select>
+    </div>
+    <button class="search-btn" type="button">Search</button>
+  </div>
+</div>
 
+<section>
+  <div class="wrap">
     <div class="listings-grid">
 
       <article class="card reveal">
@@ -175,21 +152,69 @@
         </div>
       </article>
 
-    </div>
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Modern duplex house exterior in Alder Park" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fieldstone-4/800/600'">
+          <span class="card-tag mono">Duplex</span>
+          <svg class="card-ticks" viewBox="0 0 400 300">
+            <line x1="70" y1="120" x2="330" y2="90" stroke="#A6512C" stroke-width="1"/>
+            <text x="190" y="98" font-family="IBM Plex Mono" font-size="10" fill="#A6512C">51'-0"</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="price mono">$1,020,000</div>
+          <div class="addr">302–304 Millrace St, Alder Park</div>
+          <div class="card-specs">
+            <span><b>5</b> bd</span>
+            <span><b>4</b> ba</span>
+            <span><b>3,050</b> sqft</span>
+            <span><b>0.3</b> ac</span>
+          </div>
+        </div>
+      </article>
 
-    <div style="text-align:center;margin-top:44px;">
-      <a class="btn-secondary" href="listings.html" style="padding:14px 30px;">View all listings →</a>
-    </div>
-  </div>
-</section>
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Open buildable land parcel along Quarry Line Rd" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fieldstone-5/800/600'">
+          <span class="card-tag mono">Land</span>
+          <svg class="card-ticks" viewBox="0 0 400 300">
+            <line x1="0" y1="230" x2="400" y2="200" stroke="#A6512C" stroke-width="1"/>
+            <text x="170" y="195" font-family="IBM Plex Mono" font-size="10" fill="#A6512C">4.8 ac</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="price mono">$385,000</div>
+          <div class="addr">Parcel 12, Quarry Line Rd</div>
+          <div class="card-specs">
+            <span><b>—</b> bd</span>
+            <span><b>—</b> ba</span>
+            <span><b>Buildable</b></span>
+            <span><b>4.8</b> ac</span>
+          </div>
+        </div>
+      </article>
 
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="testimonial reveal">
-      <img class="testimonial-photo" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80" alt="Warmly lit living room interior" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fieldstone-testimonial/1600/900'">
-      <div class="testimonial-scrim"></div>
-      <blockquote>"Dana walked the Ashcombe house with us at 7am so we could see the light hit the kitchen the way we would every morning. That's the whole reason we bought it."</blockquote>
-      <cite>— Renata &amp; Owen T., closed on Longview Bluff, March 2026</cite>
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Large house exterior on Longview Bluff in Ashcombe" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/fieldstone-6/800/600'">
+          <span class="card-tag mono">Reduced</span>
+          <svg class="card-ticks" viewBox="0 0 400 300">
+            <line x1="60" y1="112" x2="340" y2="112" stroke="#A6512C" stroke-width="1"/>
+            <text x="180" y="104" font-family="IBM Plex Mono" font-size="10" fill="#A6512C">58'-0"</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="price mono">$1,485,000</div>
+          <div class="addr">19 Longview Bluff, Ashcombe</div>
+          <div class="card-specs">
+            <span><b>4</b> bd</span>
+            <span><b>3.5</b> ba</span>
+            <span><b>3,320</b> sqft</span>
+            <span><b>1.1</b> ac</span>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -197,10 +222,10 @@
 <section style="padding-top:0;">
   <div class="wrap">
     <div class="cta-banner reveal">
-      <h2>Have a home in mind, or ready to list your own?</h2>
+      <h2>Don't see the right fit yet?</h2>
       <div class="cta-buttons">
-        <a class="btn-primary" href="contact.html">Book a walkthrough</a>
-        <a class="btn-secondary" href="contact.html">Get a home valuation</a>
+        <a class="btn-primary" href="contact.html">Tell us what you're after</a>
+        <a class="btn-secondary" href="about.html">Meet the agents</a>
       </div>
     </div>
   </div>
