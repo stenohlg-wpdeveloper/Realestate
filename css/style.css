@@ -504,3 +504,97 @@
   .contact-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
 }
+
+/* ---------- WHY US / FEATURES ---------- */
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.feature-card{
+  padding:28px 24px;background:var(--paper);border-radius:4px;
+  border:1px solid var(--line);
+}
+.feature-card .feature-icon{
+  width:38px;height:38px;margin-bottom:18px;color:var(--rust);
+}
+.feature-card h3{font-size:17px;margin-bottom:10px;}
+.feature-card p{font-size:14px;color:#565c53;margin:0;}
+@media (max-width:980px){ .features-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:640px){ .features-grid{grid-template-columns:1fr;} }
+
+/* ---------- NEIGHBORHOOD / AREA TAGS ---------- */
+.area-tags{display:flex;flex-wrap:wrap;gap:12px;}
+.area-tag{
+  padding:10px 18px;border:1px solid var(--line-strong);border-radius:2px;
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--forest-dark);
+  text-decoration:none;transition:border-color .2s ease, color .2s ease, background .2s ease;
+}
+.area-tag:hover{border-color:var(--rust);color:var(--rust);background:rgba(166,81,44,0.06);}
+
+/* ---------- FAQ ACCORDION ---------- */
+.faq-list{border-top:1px solid var(--line-strong);}
+.faq-item{border-bottom:1px solid var(--line-strong);}
+.faq-question{
+  width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 2px;font-family:'Fraunces',serif;font-size:17px;color:var(--forest-dark);
+}
+.faq-question .faq-icon{
+  flex:none;width:20px;height:20px;position:relative;
+}
+.faq-question .faq-icon::before, .faq-question .faq-icon::after{
+  content:"";position:absolute;background:var(--rust);border-radius:2px;
+}
+.faq-question .faq-icon::before{width:14px;height:2px;top:9px;left:3px;}
+.faq-question .faq-icon::after{width:2px;height:14px;top:3px;left:9px;transition:transform .25s ease;}
+.faq-item.open .faq-icon::after{transform:rotate(90deg);}
+.faq-answer{
+  max-height:0;overflow:hidden;transition:max-height .35s ease;
+}
+.faq-answer p{font-size:14.5px;color:#565c53;margin:0 0 22px;max-width:640px;padding-right:2px;}
+
+/* ---------- TIMELINE (About) ---------- */
+.timeline{border-left:2px solid var(--line-strong);padding-left:32px;display:flex;flex-direction:column;gap:40px;}
+.timeline-item{position:relative;}
+.timeline-item::before{
+  content:"";position:absolute;left:-40px;top:4px;width:11px;height:11px;
+  border-radius:50%;background:var(--rust);border:3px solid var(--ivory);
+  box-shadow:0 0 0 1px var(--line-strong);
+}
+.timeline-item .year{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--rust);margin-bottom:6px;display:block;}
+.timeline-item h3{font-size:18px;margin-bottom:6px;}
+.timeline-item p{font-size:14px;color:#565c53;margin:0;max-width:560px;}
+
+/* ---------- VALUES GRID (About) ---------- */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.value-card h3{font-size:18px;margin-bottom:10px;}
+.value-card .value-num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--rust);display:block;margin-bottom:12px;}
+.value-card p{font-size:14.5px;color:#565c53;margin:0;}
+@media (max-width:900px){ .values-grid{grid-template-columns:1fr;} }
+
+/* ---------- AGENT BIO (expanded cards) ---------- */
+.agent-card .bio{font-size:13px;color:#5b5f57;margin-top:10px;line-height:1.5;}
+.agent-card .agent-meta{
+  display:flex;gap:14px;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6b7268;
+}
+
+/* ---------- FILTER CHIPS (Listings) ---------- */
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px;}
+.chip{
+  padding:9px 18px;border-radius:20px;border:1px solid var(--line-strong);
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:none;cursor:pointer;
+  color:var(--forest-dark);transition:all .2s ease;
+}
+.chip.active{background:var(--forest-dark);color:var(--ivory);border-color:var(--forest-dark);}
+.chip:hover{border-color:var(--rust);}
+
+/* ---------- OFFICE HOURS TABLE (Contact) ---------- */
+.hours-table{width:100%;border-collapse:collapse;font-size:14px;}
+.hours-table td{padding:9px 0;border-bottom:1px solid var(--line);}
+.hours-table td:last-child{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#565c53;}
+
+/* ---------- SOCIAL ROW ---------- */
+.social-row{display:flex;gap:14px;margin-top:6px;}
+.social-row a{
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;color:var(--forest-dark);
+  transition:all .2s ease;
+}
+.social-row a:hover{background:var(--forest-dark);color:var(--ivory);border-color:var(--forest-dark);}

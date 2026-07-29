@@ -12,6 +12,41 @@ const revealEls = document.querySelectorAll('.reveal');
     });
   });
 
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const btn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    btn.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(other=>{
+        if(other !== item){
+          other.classList.remove('open');
+          other.querySelector('.faq-answer').style.maxHeight = null;
+        }
+      });
+      item.classList.toggle('open', !isOpen);
+      answer.style.maxHeight = !isOpen ? answer.scrollHeight + 'px' : null;
+    });
+  });
+
+  // Listing filter chips
+  const chipRow = document.querySelector('.chip-row');
+  if(chipRow){
+    const chips = chipRow.querySelectorAll('.chip');
+    const cards = document.querySelectorAll('.listings-grid .card');
+    chips.forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        chips.forEach(c=>c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        cards.forEach(card=>{
+          const match = filter === 'all' || card.dataset.type === filter;
+          card.style.display = match ? '' : 'none';
+        });
+      });
+    });
+  }
+
   // Mobile nav toggle
   const navToggle = document.querySelector('.nav-toggle');
   const mobileMenu = document.querySelector('.mobile-menu');
