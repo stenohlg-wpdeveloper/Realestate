@@ -47,16 +47,6 @@ const revealEls = document.querySelectorAll('.reveal');
     });
   }
 
-  // Shrink header + collapse utility bar on scroll
-  const siteHeader = document.querySelector('header');
-  if(siteHeader){
-    const applyScrollState = ()=>{
-      siteHeader.classList.toggle('scrolled', window.scrollY > 40);
-    };
-    applyScrollState();
-    window.addEventListener('scroll', applyScrollState, { passive: true });
-  }
-
   // Mobile nav toggle
   const navToggle = document.querySelector('.nav-toggle');
   const mobileMenu = document.querySelector('.mobile-menu');
